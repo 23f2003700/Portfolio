@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaryan Choudhary - Ambitious Automator</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Top-left Circle GIF -->
+    <div class="top-left-circle">
+        <a href="#top" class="circle-link">
+            <img src="certificates/circle.gif" alt="Top of Page" class="circle-gif">
+        </a>
+    </div>
+    
+
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            
+            <div class="nav-right">
+                <a href="connect.html" class="connect-btn">
+                    <i class="fas fa-handshake"></i>
+                    Connect with Me
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="name">Aaryan Choudhary</h1>
+            <p class="tagline">Ambitious Automator</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Certificates Section -->
+        <section id="certificates" class="section certificates-section">
+            <div class="container">
+                <h2 class="section-title">Certificates</h2>
+                <div class="certificates-grid" id="certificatesGrid">
+                    <!-- Certificates will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be loaded from JSON -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="section tech-section">
+            <div class="container">
+                <h2 class="section-title">Known Tech Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-item" data-category="languages">
+                        <h3>Languages</h3>
+                        <div class="tech-icons">
+                            <span class="tech-icon">Python</span>
+                            <span class="tech-icon">JavaScript</span>
+                            <span class="tech-icon">HTML</span>
+                            <span class="tech-icon">CSS</span>
+                        </div>
+                    </div>
+                    <div class="tech-item" data-category="frameworks">
+                        <h3>Frameworks</h3>
+                        <div class="tech-icons">
+                            <span class="tech-icon">VueJS</span>
+                            <span class="tech-icon">ReactJS</span>
+                            <span class="tech-icon">Node.js</span>
+                            <span class="tech-icon">MERN Stack</span>
+                        </div>
+                    </div>
+                    <div class="tech-item" data-category="data-science">
+                        <h3>Data Science</h3>
+                        <div class="tech-icons">
+                            <span class="tech-icon">Jupyter Notebook</span>
+                            <span class="tech-icon">Pandas</span>
+                            <span class="tech-icon">NumPy</span>
+                            <span class="tech-icon">Matplotlib</span>
+                            <span class="tech-icon">Power BI</span>
+                        </div>
+                    </div>
+                    <div class="tech-item" data-category="ai-ml">
+                        <h3>AI & ML Tools</h3>
+                        <div class="tech-icons">
+                            <span class="tech-icon">Machine Learning</span>
+                            <span class="tech-icon">Deep Learning</span>
+                            <span class="tech-icon">Neural Networks</span>
+                        </div>
+                    </div>
+                    <div class="tech-item" data-category="cloud">
+                        <h3>APIs & Cloud</h3>
+                        <div class="tech-icons">
+                            <span class="tech-icon">REST APIs</span>
+                            <span class="tech-icon">GCP</span>
+                            <span class="tech-icon">Hugging Face</span>
+                            <span class="tech-icon">Kaggle</span>
+                            <span class="tech-icon">Colab</span>
+                            <span class="tech-icon">GitHub</span>
+                            <span class="tech-icon">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-motto">
+                    <h3>DREAM IT - MAKE IT</h3>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/IRONalways17" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span class="icon-text">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rampyaaryan17" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span class="icon-text">LinkedIn</span>
+                    </a>
+                    <a href="https://www.credly.com/users/aaryan-choudhary.103b742b/badges#credly" target="_blank" class="social-link">
+                        <i class="fab fa-certificate"></i>
+                        <span class="icon-text">Credly</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="pdf-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <iframe id="pdfViewer" src=""></iframe>
+        </div>
+    </div>
+
+    <!-- Paint Splash Canvas -->
+    <canvas id="paintCanvas" class="paint-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>

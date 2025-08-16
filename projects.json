@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Quiz Master App v2 & v3",
+    "description": "Advanced quiz application with enhanced features, user authentication, progress tracking, and a modern responsive interface. Built with React.js and Node.js backend.",
+    "githubLink": "https://github.com/IRONalways17/quiz-master-app"
+  },
+  {
+    "name": "Web-Based Games",
+    "description": "Collection of interactive web games including puzzle games, memory games, and strategy games. Features smooth animations, score tracking, and mobile-responsive design.",
+    "githubLink": "https://github.com/IRONalways17/web-games"
+  },
+  {
+    "name": "Video-Conference App",
+    "description": "Real-time video conferencing application with features like screen sharing, chat functionality, recording capabilities, and secure user authentication. Built with WebRTC and Socket.io.",
+    "githubLink": "https://github.com/IRONalways17/video-conference-app"
+  },
+  {
+    "name": "Money Transfer App",
+    "description": "Secure web application for collecting and managing donations with payment gateway integration, donor management, and detailed reporting. Features SSL encryption and secure payment processing.",
+    "githubLink": "https://github.com/IRONalways17/donation-app"
+  },
+  {
+    "name": "LLM Assistant",
+    "description": "Intelligent AI assistant powered by large language models with natural language processing, context awareness, and integration capabilities. Built with Python and modern AI frameworks.",
+    "githubLink": "https://github.com/IRONalways17/ai-assistant"
+  }
+]
