@@ -640,25 +640,77 @@ body {
     .certificate-card,
     .project-card,
     .tech-item {
-        padding: 25px 20px;
-        min-height: 300px;
-        max-width: 300px;
+        padding: 30px 25px;
+        min-height: 320px;
+        max-width: 320px;
+    }
+    
+    .certificate-title {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+    
+    .project-name {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+    
+    .project-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 15px;
+    }
+    
+    .tech-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    .tech-icon {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        margin: 3px;
     }
     
     .certificate-actions {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
     }
     
     .btn {
         width: 100%;
         max-width: 200px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
     
     .modal-content {
         width: 98%;
         height: 98%;
         margin: 1% auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .certificate-card,
+    .project-card,
+    .tech-item {
+        padding: 30px 25px;
+        min-height: 340px;
+        max-width: 280px;
+    }
+    
+    .certificate-title {
+        font-size: 1.05rem;
+        line-height: 1.3;
+    }
+    
+    .project-description {
+        font-size: 0.82rem;
+        line-height: 1.4;
     }
 }
 
@@ -693,9 +745,43 @@ body {
     .certificate-card,
     .project-card,
     .tech-item {
-        padding: 20px 15px;
-        min-height: 250px;
-        max-width: 250px;
+        padding: 25px 20px;
+        min-height: 300px;
+        max-width: 260px;
+    }
+    
+    .certificate-title {
+        font-size: 1rem;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+    
+    .project-name {
+        font-size: 1rem;
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+    
+    .project-description {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+    
+    .tech-item h3 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .tech-icon {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        margin: 2px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
     }
     
     .social-links {
@@ -707,6 +793,98 @@ body {
         color: #000 !important;
         opacity: 1;
         visibility: visible;
+    }
+}
+
+@media (max-width: 414px) {
+    .certificate-card,
+    .project-card,
+    .tech-item {
+        padding: 25px 20px;
+        min-height: 320px;
+        max-width: 240px;
+    }
+    
+    .certificate-title {
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
+    
+    .project-description {
+        font-size: 0.78rem;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 375px) {
+    .certificate-card,
+    .project-card,
+    .tech-item {
+        padding: 22px 18px;
+        min-height: 300px;
+        max-width: 220px;
+    }
+    
+    .certificate-title {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+    
+    .project-name {
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
+    
+    .project-description {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    
+    .tech-icon {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        margin: 2px;
+    }
+}
+
+@media (max-width: 320px) {
+    .certificate-card,
+    .project-card,
+    .tech-item {
+        padding: 20px 15px;
+        min-height: 280px;
+        max-width: 200px;
+    }
+    
+    .certificate-title {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    .project-name {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+    
+    .project-description {
+        font-size: 0.72rem;
+        line-height: 1.4;
+    }
+    
+    .tech-item h3 {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+    
+    .tech-icon {
+        font-size: 0.65rem;
+        padding: 4px 6px;
+        margin: 1px;
+    }
+    
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
 }
 

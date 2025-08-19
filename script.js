@@ -1,5 +1,11 @@
-// Initialize GSAP ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+// Initialize GSAP ScrollTrigger with fallback
+try {
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+} catch (error) {
+    console.log('GSAP not available, using fallback animations');
+}
 
 // Paint Splash Canvas
 class PaintSplash {
@@ -114,7 +120,9 @@ function openPDFModal(pdfUrl) {
     document.body.style.overflow = 'hidden';
     
     // Create paint splash effect
-    paintSplash.createSplash(window.innerWidth / 2, window.innerHeight / 2);
+    if (typeof paintSplash !== 'undefined') {
+        typeof paintSplash !== "undefined" && paintSplash.createSplash(window.innerWidth / 2, window.innerHeight / 2);
+    }
 }
 
 function closePDFModal() {
@@ -160,6 +168,7 @@ async function loadCertificates() {
 
 function displayCertificates(certificates) {
     const grid = document.getElementById('certificatesGrid');
+    grid.innerHTML = ''; // Clear existing content
     
     certificates.forEach(cert => {
         const card = document.createElement('div');
@@ -185,7 +194,7 @@ function displayCertificates(certificates) {
         // Add paint splash effect on hover
         card.addEventListener('mouseenter', (e) => {
             const rect = card.getBoundingClientRect();
-            paintSplash.createSplash(
+            typeof paintSplash !== "undefined" && paintSplash.createSplash(
                 rect.left + rect.width / 2,
                 rect.top + rect.height / 2
             );
@@ -243,6 +252,7 @@ async function loadProjects() {
 
 function displayProjects(projects) {
     const grid = document.getElementById('projectsGrid');
+    grid.innerHTML = ''; // Clear existing content
     
     projects.forEach((project, index) => {
         const card = document.createElement('div');
@@ -261,7 +271,7 @@ function displayProjects(projects) {
         // Add paint splash effect on hover
         card.addEventListener('mouseenter', (e) => {
             const rect = card.getBoundingClientRect();
-            paintSplash.createSplash(
+            typeof paintSplash !== "undefined" && paintSplash.createSplash(
                 rect.left + rect.width / 2,
                 rect.top + rect.height / 2
             );
@@ -277,107 +287,116 @@ function displayProjects(projects) {
     });
 }
 
-// GSAP Animations
+// GSAP Animations with fallback
 function initAnimations() {
-    // Header animation
-    gsap.from('.name', {
-        duration: 1.2,
-        y: -50,
-        opacity: 0,
-        ease: 'power3.out'
-    });
+    if (typeof gsap !== 'undefined') {
+        // Header animation
+        gsap.from('.name', {
+            duration: 1.2,
+            y: -50,
+            opacity: 0,
+            ease: 'power3.out'
+        });
 
-    gsap.from('.tagline', {
-        duration: 1.2,
-        y: 30,
-        opacity: 0,
-        ease: 'power3.out',
-        delay: 0.3
-    });
+        gsap.from('.tagline', {
+            duration: 1.2,
+            y: 30,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.3
+        });
 
-    // Section titles animation
-    gsap.utils.toArray('.section-title').forEach(title => {
-        gsap.from(title, {
+        // Section titles animation
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 0.8,
+                y: 30,
+                opacity: 0,
+                ease: 'power2.out'
+            });
+        });
+
+        // Certificate cards animation
+        gsap.utils.toArray('.certificate-card').forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    end: 'bottom 15%',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                scale: 0.9,
+                ease: 'power2.out',
+                delay: index * 0.1
+            });
+        });
+
+        // Project cards animation
+        gsap.utils.toArray('.project-card').forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    end: 'bottom 15%',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                scale: 0.9,
+                ease: 'power2.out',
+                delay: index * 0.1
+            });
+        });
+
+        // Tech items animation
+        gsap.utils.toArray('.tech-item').forEach((item, index) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                    end: 'bottom 15%',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 0.8,
+                y: 40,
+                opacity: 0,
+                ease: 'power2.out',
+                delay: index * 0.1
+            });
+        });
+
+        // Social links animation
+        gsap.from('.social-link', {
             scrollTrigger: {
-                trigger: title,
+                trigger: '.footer',
                 start: 'top 80%',
                 end: 'bottom 20%',
                 toggleActions: 'play none none reverse'
             },
-            duration: 0.8,
-            y: 30,
-            opacity: 0,
-            ease: 'power2.out'
-        });
-    });
-
-    // Certificate cards animation
-    gsap.utils.toArray('.certificate-card').forEach((card, index) => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                end: 'bottom 15%',
-                toggleActions: 'play none none reverse'
-            },
-            duration: 0.8,
-            y: 50,
-            opacity: 0,
-            scale: 0.9,
-            ease: 'power2.out',
-            delay: index * 0.1
-        });
-    });
-
-    // Project cards animation
-    gsap.utils.toArray('.project-card').forEach((card, index) => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                end: 'bottom 15%',
-                toggleActions: 'play none none reverse'
-            },
-            duration: 0.8,
-            y: 50,
-            opacity: 0,
-            scale: 0.9,
-            ease: 'power2.out',
-            delay: index * 0.1
-        });
-    });
-
-    // Tech items animation
-    gsap.utils.toArray('.tech-item').forEach((item, index) => {
-        gsap.from(item, {
-            scrollTrigger: {
-                trigger: item,
-                start: 'top 85%',
-                end: 'bottom 15%',
-                toggleActions: 'play none none reverse'
-            },
-            duration: 0.8,
-            y: 40,
+            duration: 0.6,
+            y: 20,
             opacity: 0,
             ease: 'power2.out',
-            delay: index * 0.1
+            stagger: 0.1
         });
-    });
-
-    // Social links animation
-    gsap.from('.social-link', {
-        scrollTrigger: {
-            trigger: '.footer',
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-        },
-        duration: 0.6,
-        y: 20,
-        opacity: 0,
-        ease: 'power2.out',
-        stagger: 0.1
-    });
+    } else {
+        // Fallback CSS animations
+        console.log('Using fallback animations');
+        document.querySelectorAll('.name, .tagline, .section-title').forEach(element => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        });
+    }
 }
 
 // Intersection Observer for fade-in animations
@@ -410,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add paint splash effect on page load
     setTimeout(() => {
-        paintSplash.createSplash(window.innerWidth / 2, window.innerHeight / 2);
+        typeof paintSplash !== "undefined" && paintSplash.createSplash(window.innerWidth / 2, window.innerHeight / 2);
     }, 1000);
 });
 
@@ -424,7 +443,7 @@ window.addEventListener('scroll', () => {
         const documentHeight = document.documentElement.scrollHeight;
         
         if (scrollY > 0 && scrollY < documentHeight - windowHeight) {
-            paintSplash.createSplash(
+            typeof paintSplash !== "undefined" && paintSplash.createSplash(
                 Math.random() * window.innerWidth,
                 Math.random() * window.innerHeight
             );
@@ -436,7 +455,7 @@ window.addEventListener('scroll', () => {
 document.addEventListener('click', (e) => {
     // Don't create splash for modal elements
     if (!e.target.closest('.pdf-modal') && !e.target.closest('.btn')) {
-        paintSplash.createSplash(e.clientX, e.clientY);
+        typeof paintSplash !== "undefined" && paintSplash.createSplash(e.clientX, e.clientY);
     }
 });
 
@@ -456,5 +475,25 @@ function throttle(func, limit) {
 
 // Throttled paint splash for scroll
 const throttledPaintSplash = throttle((x, y) => {
-    paintSplash.createSplash(x, y);
+    if (typeof paintSplash !== 'undefined') {
+        typeof paintSplash !== "undefined" && paintSplash.createSplash(x, y);
+    }
 }, 100);
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize paint splash
+    window.paintSplash = new PaintSplash();
+    
+    // Load content
+    loadCertificates();
+    loadProjects();
+    
+    // Initialize animations
+    initAnimations();
+    
+    // Initialize intersection observer
+    initIntersectionObserver();
+    
+    console.log('Portfolio initialized successfully');
+});
